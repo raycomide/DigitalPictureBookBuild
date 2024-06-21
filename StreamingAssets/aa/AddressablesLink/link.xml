@@ -1,6 +1,10 @@
 <linker>
   <assembly fullname="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="DirectoryWatcher" preserve="all" />
     <type fullname="FadeController" preserve="all" />
+    <type fullname="GameController" preserve="all" />
+    <type fullname="ImageCliphandle" preserve="all" />
+    <type fullname="OpenCV" preserve="all" />
     <type fullname="TweenGroup_CanvasFade" preserve="all" />
   </assembly>
   <assembly fullname="Unity.Addressables, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
@@ -18,6 +22,7 @@
     <type fullname="UnityEngine.RectTransform" preserve="all" />
     <type fullname="UnityEngine.Sprite" preserve="all" />
     <type fullname="UnityEngine.Texture2D" preserve="all" />
+    <type fullname="UnityEngine.Transform" preserve="all" />
     <type fullname="UnityEngine.Events.PersistentCallGroup" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Events.UnityEvent`1" preserve="nothing" serialized="true" />
   </assembly>
