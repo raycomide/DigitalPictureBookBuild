@@ -39,5 +39,28 @@
         // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
       });
     </script>
+		<script type="text/javascript">
+			function requestDeviceMotionPermission() {
+					if (typeof(DeviceMotionEvent) !== 'undefined' && typeof(DeviceMotionEvent.requestPermission) === 'function') {
+							DeviceMotionEvent.requestPermission()
+									.then(response => {
+											if (response === 'granted') {
+													window.addEventListener('devicemotion', (e) => {
+															console.log(e);
+													});
+											}
+									})
+									.catch(console.error);
+					} else {
+							// 非対応のブラウザの場合の処理
+							console.log('DeviceMotionEvent is not supported');
+					}
+			}
+
+			// ページ読み込み後にセンサーの許可をリクエスト
+			window.onload = function() {
+					requestDeviceMotionPermission();
+			};
+	</script>
   </body>
 </html>

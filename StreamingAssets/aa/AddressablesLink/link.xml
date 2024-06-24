@@ -5,7 +5,6 @@
     <type fullname="GameController" preserve="all" />
     <type fullname="ImageCliphandle" preserve="all" />
     <type fullname="OpenCV" preserve="all" />
-    <type fullname="TweenGroup_CanvasFade" preserve="all" />
   </assembly>
   <assembly fullname="Unity.Addressables, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
     <type fullname="UnityEngine.AddressableAssets.Addressables" preserve="all" />
