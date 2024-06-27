@@ -38,8 +38,7 @@
         // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
         // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
       });
-    </script>
-		<script type="text/javascript">
+
 			function requestDeviceMotionPermission() {
 					if (typeof(DeviceMotionEvent) !== 'undefined' && typeof(DeviceMotionEvent.requestPermission) === 'function') {
 							DeviceMotionEvent.requestPermission()
@@ -55,6 +54,18 @@
 							// 非対応のブラウザの場合の処理
 							console.log('DeviceMotionEvent is not supported');
 					}
+			}
+			function InitAudio() {
+				if (typeof UnityLoader !== 'undefined' && UnityLoader) {
+						if (UnityLoader.instantiate) {
+								var audioContext = new (window.AudioContext || window.webkitAudioContext)();
+								if (audioContext.state === 'suspended') {
+										audioContext.resume().then(() => {
+												console.log('AudioContext resumed');
+										});
+								}
+						}
+				}
 			}
 
 			// ページ読み込み後にセンサーの許可をリクエスト
