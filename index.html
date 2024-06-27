@@ -1,22 +1,33 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<link rel="stylesheet" href="./style.css">
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Type"
+      content="text/html; charset=utf-8"
+    />
+    <link
+      rel="stylesheet"
+      href="./style.css"
+    />
     <title>Unity Web Player | DigitalPictureBook</title>
   </head>
-  <body style="text-align: center; padding: 0; border: 0; margin: 0;">
+  <body style="text-align: center; padding: 0; border: 0; margin: 0">
     <!--canvas id="unity-canvas" width=960 height=600 tabindex="-1" style="width: 960px; height: 600px; background: #231F20"></canvas-->
-		<canvas id="unity-canvas" tabindex="-1" style="background: #231F20"></canvas>
+    <canvas
+      id="unity-canvas"
+      tabindex="-1"
+      style="background: #231f20"
+    ></canvas>
     <script src="Build/WebGL.loader.js"></script>
     <script>
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         // Mobile device style: fill the whole browser client area with the game canvas:
-        var meta = document.createElement('meta');
-        meta.name = 'viewport';
-        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
-        document.getElementsByTagName('head')[0].appendChild(meta);
+        var meta = document.createElement("meta");
+        meta.name = "viewport";
+        meta.content =
+          "width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes";
+        document.getElementsByTagName("head")[0].appendChild(meta);
 
         var canvas = document.querySelector("#unity-canvas");
         canvas.style.width = "100%";
@@ -39,39 +50,27 @@
         // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
       });
 
-			function requestDeviceMotionPermission() {
-					if (typeof(DeviceMotionEvent) !== 'undefined' && typeof(DeviceMotionEvent.requestPermission) === 'function') {
-							DeviceMotionEvent.requestPermission()
-									.then(response => {
-											if (response === 'granted') {
-													window.addEventListener('devicemotion', (e) => {
-															console.log(e);
-													});
-											}
-									})
-									.catch(console.error);
-					} else {
-							// 非対応のブラウザの場合の処理
-							console.log('DeviceMotionEvent is not supported');
-					}
-			}
-			function InitAudio() {
-				if (typeof UnityLoader !== 'undefined' && UnityLoader) {
-						if (UnityLoader.instantiate) {
-								var audioContext = new (window.AudioContext || window.webkitAudioContext)();
-								if (audioContext.state === 'suspended') {
-										audioContext.resume().then(() => {
-												console.log('AudioContext resumed');
-										});
-								}
-						}
-				}
-			}
+      function requestDeviceMotionPermission() {
+        if (typeof DeviceMotionEvent !== "undefined" && typeof DeviceMotionEvent.requestPermission === "function") {
+          DeviceMotionEvent.requestPermission()
+            .then((response) => {
+              if (response === "granted") {
+                window.addEventListener("devicemotion", (e) => {
+                  console.log(e);
+                });
+              }
+            })
+            .catch(console.error);
+        } else {
+          // 非対応のブラウザの場合の処理
+          console.log("DeviceMotionEvent is not supported");
+        }
+      }
 
-			// ページ読み込み後にセンサーの許可をリクエスト
-			window.onload = function() {
-					requestDeviceMotionPermission();
-			};
-	</script>
+      // ページ読み込み後にセンサーの許可をリクエスト
+      window.onload = function () {
+        requestDeviceMotionPermission();
+      };
+    </script>
   </body>
 </html>
